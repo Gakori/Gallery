@@ -5,7 +5,17 @@ class Image(models.Model):
     image_description = models.TextField(max_length=100)
     image_category = models.CharField(max_length=30)
     image_location = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/')
+    image_url = models.ImageField(upload_to='images/')
+    
+    @classmethod
+    def search_by_category(cls,category):
+        images = cls.objects.filter(category__name__icontains=category)
+        return images
+    
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Image.objects.filter(location__name=location).all()
+        return image_location
     
     def __str__(self):
         return self.image_title
