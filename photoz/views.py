@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from .models import Category
+from django.http import HttpResponse,Http404
+from .models import Image
 
 
 def welcome(request):
-    return render(request,'index.html')
+    images = Image.all_images()
+    return render(request,'index.html',{'images':images})
 
 def search_results(request):
     if 'category' in request.GET and request.GET['category']:
@@ -16,4 +17,6 @@ def search_results(request):
     else:
         message = 'You havent searched for any term'
         return render(request,'search.html',{'message':message})
+    
+
     
