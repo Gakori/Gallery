@@ -8,6 +8,11 @@ class Image(models.Model):
     image_url = models.ImageField(upload_to='images/')
     
     @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
+    
+    @classmethod
     def search_by_category(cls,category):
         images = cls.objects.filter(category__name__icontains=category)
         return images
