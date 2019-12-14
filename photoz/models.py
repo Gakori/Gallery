@@ -14,12 +14,12 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,category):
-        images = cls.objects.filter(category__name__icontains=category)
+        images = cls.objects.filter(category__title__icontains=category)
         return images
     
     @classmethod
     def filter_by_location(cls, location):
-        image_location = Image.objects.filter(location__name=location).all()
+        image_location = Image.objects.filter(location__title=location).all()
         return image_location
     
     def __str__(self):
@@ -27,13 +27,20 @@ class Image(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=30),
+    category_image = models.ImageField(upload_to='images/')
+    
+    @classmethod
+    def all_categories(cls):
+        categories = cls.objects.all()
+        return categories
     
     def __str__(self):
-        return f'name: {self.name}'
+        return f'title: {self.title}'
     
     
 class Location(models.Model):
     place = models.CharField(max_length=150)
+    image_url = models.ImageField(upload_to='images/')
     
     def __str__(self):
         return f'place: {self.place}'
