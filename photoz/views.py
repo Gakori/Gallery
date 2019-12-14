@@ -24,6 +24,13 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
     return render(request,'index.html',{'image':image})
+
+def category(request,image_id):
+    try:
+        category=Category.objects.get(id = category_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'category.html',{'category':category})
     
 
     
