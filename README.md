@@ -18,38 +18,32 @@
 * Copy a link to the photo to share with my friends.
 * View photos based on the location they were taken.
 
-## Prerequisities
-
-* Flask
-* Pip
-* Python
-
 ## SetUp / Installation Requirements
-* Clone the repo by running:
+ Clone the repo by running:
 *   git clone https://github.com/Gakori/Gallery.git
 
-* Navigate to the project directory;
+ Navigate to the project directory;
 *   cd Gallery
 
-* Create a virtual environment and activate it
+ Create a virtual environment and activate it
 *   python3 -m venv virtual
 *   source virtual/bin/activate
 
-* Create a database
- using postgress, type the following commands;
+  Create a database
+  using postgress, type the following commands;
 *   $psql
 
 Then run the command to create a new database
 *   #create database gallery
 
-* Install dependencies
+ Install dependencies
 *   pip install -r requirements.txt
 
-* Create database migrations
+ Create database migrations
 *   python3 manage.py makemigrations photoz
 *   python3 manage.py migrate
 
-* Run the app
+ Run the app
 *   python3 manage.py runserver
 
 ## TECHNOLOGIES USED
