@@ -19,7 +19,7 @@
 * View photos based on the location they were taken.
 
 ## SetUp / Installation Requirements
- Clone the repo by running:
+  Clone the repo by running:
 *   git clone https://github.com/Gakori/Gallery.git
 
  Navigate to the project directory;

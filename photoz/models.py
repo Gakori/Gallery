@@ -26,17 +26,17 @@ class Image(models.Model):
         return self.image_title
 
 class Category(models.Model):
-    title = models.CharField(max_length=30),
+    title = models.CharField(max_length=30)
+    description = models.TextField(max_length=30)
     category_image = models.ImageField(upload_to='images/')
     
     @classmethod
-    def all_categories(cls):
-        categories = cls.objects.all()
+    def search_by_title(cls,search_term):
+        category = cls.objects.filter(title__icontains=search_term)
         return categories
     
     def __str__(self):
         return f'title: {self.title}'
-    
     
 class Location(models.Model):
     place = models.CharField(max_length=150)

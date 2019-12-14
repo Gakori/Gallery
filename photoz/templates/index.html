@@ -1,7 +1,16 @@
 {%extends 'base.html'%} {% block content %}
 
-<h1 class="index" style="text-align: center; margin-top: 50px;">welcome</h1>
+<link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" 
+rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+
+<h1 class="index" style="text-align: center; margin-top: 50px; font-family: 'Girassol', cursive; font-size: 50px;">GALLERY</h1>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-right: 370px; padding-left: 370px; background-color: black; animation-duration: 1.5s;">
+
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -16,11 +25,11 @@
       </div>
   
       <div class="item">
-        <img src="https://cdn.pixabay.com/photo/2015/02/07/13/07/cards-627167__340.jpg" alt="Chicago">
+        <img src="https://cdn.pixabay.com/photo/2018/05/17/11/24/friends-3408314__340.jpg" alt="Chicago">
       </div>
   
       <div class="item">
-        <img src="https://cdn.pixabay.com/photo/2016/11/29/11/45/children-1869265__340.jpg" alt="New York">
+        <img src="https://cdn.pixabay.com/photo/2017/08/07/21/40/people-2608145__340.jpg" alt="New York">
       </div>
     </div>
   
@@ -37,15 +46,15 @@
 <!--search form-->
 
 <!--displaying images-->
-<div class="container" style="background-image: url('')">
 <section class="gallery py-5" id="gallery">
+    <div class="container">
 
     <div class="inner-sec-wthree py-lg-5 py-3">
-      <h2 class="text-center">My Photos</h2>
+      <h2 class="Photos" style="text-align: center; font-family: 'Lilita One', cursive; font-size: 50px;">My Photos</h2>
       <div class="row">
         {% for image in images %}
         <div class="col-md-4" style="margin-top: 20px;">
-          <a class="" data-toggle="modal" data-target="#{{image.id}}"
+          <a class="image" data-toggle="modal" data-target="#{{image.id}}"
             ><img
               src="{{image.image_url.url}}"
               alt="gallery img"
@@ -64,12 +73,12 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" style="font-size: 30px; text-align: center;">{{image.image_title}}</h4>
+        <h4 class="modal-title" style="font-size: 30px; text-align: center; font-family: 'Open Sans Condensed', sans-serif;">{{image.image_title}}</h4>
       </div>
       <div class="modal-body">
-        <img src="{{image.image_url.url}}" alt="image.image_title">
-        <p class="des" style="font-size: 20px; text-align: center;">{{image.image_description}}</p>
-        <p class="location" style="font-size: 20px; text-align: center;">Location:{{image.image_location}}</p>
+        <img src="{{image.image_url.url}}" alt="image.image_title" style="padding-left: 38px;">
+        <p class="des" style="font-size: 20px; text-align: center; font-family: 'Noto Serif', serif;">{{image.image_description}}</p>
+        <p class="location" style="font-size: 20px; text-align: center;font-family: 'Playfair Display SC', serif;">Location:{{image.image_location}}</p>
       </div>
       <div class="modal-footer">
         <input class="form-control input-lg" type="text" value="{{image.image_url}}" id="{{image.id}}.url">
@@ -82,4 +91,12 @@
 </div>
 {% endfor %}
 
+
 {% endblock content %}
+
+<style>
+.image {
+  src: url('https://cdn.pixabay.com/photo/2012/02/22/19/28/africa-15428__340.jpg');
+}
+
+</style>

@@ -30,7 +30,7 @@ def category(request,category_id):
         category=Category.objects.get(id = category_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,'category.html',{'category':category})
+    return render(request,'search.html',{'category':category})
     
 
     
