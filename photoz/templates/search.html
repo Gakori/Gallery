@@ -5,9 +5,16 @@
     <div class="row">
         {% if categories %}
 
-        <h3>Found {{ categories|length }} of searched term {{message}}</h3>
+        <h3 class="search" style="margin-top:50px;">Found {{ categories|length }} of searched term {{message}}</h3>
+        <div class="col-md-4">
+          <a class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{image.id}}"
+            ><img
+              src="{{image.image_url.url}}"
+              alt="gallery img"
+              class="img-responsive"
+          /></a></div>
         {% else %}
-        <h3> Found 0 categories for the search term {{message}}</h3>
+        <h3 class="search" style="margin-top:50px;"> Found 0 categories for the search term {{message}}</h3>
         {% endif %}
     </div>
 
