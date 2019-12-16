@@ -30,10 +30,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xt1_mak*0!@rqtz@7(-d=a$hmvi=6vr_4jp$zssga4$d6z(z^@'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 # ALLOWED_HOSTS = ['galleryphotoz.herokuapp.com']
 
@@ -89,24 +88,20 @@ WSGI_APPLICATION = 'mygallery.wsgi.application'
 if config('MODE')=="dev":
     DATABASES = {
         'default': {
-            'ENGINE':   'django.db.backends.postgresql_psycopg2',
-            'NAME':config('DB_NAME'),
-            'USER':config('DB_USER'),            
-            'PASSWORD':config('DB_PASSWORD'),
-            'HOST':config('DB_HOST'),
-            'PORT':'',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),            
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': '',
         }
     }
 
 # production
 else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
-   }
+    DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
    
-   db_from_env = dj_database_url.config(conn_max_age=500)
+    db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
