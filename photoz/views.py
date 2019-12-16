@@ -26,7 +26,7 @@ def image(request,image_id):
     
 def category(request,category_id):
     try:
-        acategory= Category.objects.get(id = category_id)
+        category= Category.objects.get(id = category_id)
     except DoesNotExist:
         raise Http404() 
     return render(request,'category.html', {'category:category'})
