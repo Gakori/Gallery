@@ -12,20 +12,46 @@
               </div>
             
               <div class="row">
-            
+                  <div class="col-md-3">
               {% if categories %}
                 {% for category in categories %}
                   <div class="col-sm-6 col-md-3">
                       <h1>{{category.image_title}}</h1>
                   </div>
                   <div>
-                        <img src="{{category.image_url.url}}" alt="image">
-                  </div>
-        
-                
+                    <a class="image" data-toggle="modal" data-target="#{{image.id}}"
+                    ><img
+                      src="{{category.image_url.url}}"
+                      alt="gallery img"
+                      class="img-responsive"
+                  /></a>
+                  </div>        
                     </div>
                     </div>
                   </div>
+                  <!-- Modal -->
+<div id="{{image.id}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" style="font-size: 30px; text-align: center; font-family: 'Open Sans Condensed', sans-serif;">{{image.image_title}}</h4>
+            </div>
+            <div class="modal-body">
+              <img src="{{image.image_url.url}}" alt="image.image_title" style="padding-left: 38px;">
+              <p class="des" style="font-size: 20px; text-align: center; font-family: 'Noto Serif', serif;">{{image.image_description}}</p>
+              <p class="location" style="font-size: 20px; text-align: center;font-family: 'Playfair Display SC', serif;">Location:{{image.image_location}}</p>
+              <p class="location" style="font-size: 20px; text-align: center;font-family: 'Playfair Display SC', serif;">Category:{{image.image_category}}</p>
+            </div>
+            <div class="modal-footer">
+              <input class="form-control input-lg" type="text" value="{{category.image_url.url}}" id="{{image.id}}.url">
+              <button type="button" class="btn btn-sucess" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
                 {% endfor %}
               {% endif %}
               </div>
