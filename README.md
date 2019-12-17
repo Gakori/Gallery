@@ -8,7 +8,7 @@
     The project is for displaying photos created using django.
 
 ## SCREENSHOTS
-![Screenshot](images/s1.png)
+![Screenshot](gallery/images/s1.png)
 ![Screenshot](images/s2.png)
 ![Screenshot](images/s3.png)
 
