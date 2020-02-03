@@ -4,16 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     {% if title %}
     <title>Gallery - {{title}}</title>
     {% else %}
     <title>Gallery</title>
     {% endif %}
-
+ 
     {% block styles %}
         {% bootstrap_css %}
-        <link rel="stylesheet" href="{% static 'css/basegallery.css' %}">
+        <link rel="stylesheet" href="{% static 'photoz/photoz.css' %}">
     {% endblock %}
 </head>
 

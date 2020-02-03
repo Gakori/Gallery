@@ -1,4 +1,5 @@
 from django.db import models
+import pyperclip
 
 class Image(models.Model):
     image_title = models.CharField(max_length=30)
@@ -36,6 +37,10 @@ class Image(models.Model):
         
     def delete_image(self):
         self.delete()
+        
+    @classmethod
+    def copy_image(cls, image_url):
+        pyperclip.copy(image_url)
     
 class tags(models.Model):
     name = models.CharField(max_length=30)
